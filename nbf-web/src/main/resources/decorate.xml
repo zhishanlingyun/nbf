@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<decorates>
+
+    <decorate>
+        <templet>x/decorate/tpstd.htm</templet>
+        <path>x/bms/*</path>
+    </decorate>
+
+    <decorateReq>
+        <templet>x/decorate/tpstd.htm</templet>
+        <req>/login</req>
+        <req>/login/req</req>
+    </decorateReq>
+
+    <!--<decorate>
+        <templet>/temple2.htm</templet>
+        <path>/xxx/xx/*</path>
+        <path>/kkk2.htm</path>
+        <path>/kkk3.htm</path>
+    </decorate>-->
+</decorates>
