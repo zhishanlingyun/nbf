@@ -17,7 +17,7 @@ import java.util.Set;
 public class DecorateRenderTest {
     ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("spring-config.xml");
 
-    @Test
+    //@Test
     public void decorateTest(){
         DecorateTempletRender render = (DecorateTempletRender)context.getBean("decorateTempletRender");
         Map<String, Set<String>> map = render.getDecorateMap();

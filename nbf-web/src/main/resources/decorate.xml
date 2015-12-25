@@ -2,12 +2,12 @@
 <decorates>
 
     <decorate>
-        <templet>x/decorate/tpstd.htm</templet>
+        <templet>m/decorate/tpstd.htm</templet>
         <path>x/bms/*</path>
     </decorate>
 
     <decorateReq>
-        <templet>x/decorate/tpstd.htm</templet>
+        <templet>m/decorate/tpstd.htm</templet>
         <req>/login</req>
         <req>/login/req</req>
     </decorateReq>

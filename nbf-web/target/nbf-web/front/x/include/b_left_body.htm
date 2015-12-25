@@ -1,0 +1,64 @@
+<#--
+<#if req_menuID!=null><#assign menuID=req_menuID></#if>
+<#assign currentRoot=UIMenuService.getTopMenuID(menuID).menID>
+<#assign root=UIMenuService.getMenusByID(currentRoot,2)>
+<#assign root=UIMenuService.selectMenuByID(menuID,root)>
+<#list root as item><#assign nodeMenu=item>
+-->
+<!--leftnav-->
+<#--
+<div class="leftnav mt15 clear" style="cursor: pointer;">
+  <h1 onclick=""><img id="" height="12px" src="${imagePath}body_down.gif"/>公司维护</h1>
+  <div id="${item.menID}" class="content">
+    <ul class="treeul mt5 clear">
+    <#list nodeMenu.menuList as e>
+    <li class="lev_1"><a <#if e.menID = menuID>class="sel"</#if> href="${ctxPath}${e.menURL}&menuID=${e.menID}" target="${e.menGoType}">${e.menName}</a></li>
+    	<#if !FtlHelp.eq(e.menuList,null) >
+		    <#if 0 < e.menuList?size >
+			    <li class="lev_2">
+			      <#list e.menuList as e2>
+			      <a <#if e2.menID = menuID>class="sel"</#if> href="${ctxPath}${e2.menURL}&menuID=${e2.menID}" target="${e2.menGoType}">${e2.menName}</a>
+			      </#list>
+			    </li>
+		    </#if>
+	    </#if>
+    </#list>
+    </ul>
+  </div>
+</div>
+</#list>
+-->
+<div class="leftnav mt15 clear" style="cursor: pointer;">
+  <h1 onclick="clickMenu('company_mid');"><img id="company_mid" height="12px" src="${imagePath}/body_down.gif"/>公司维护</h1>
+  <div id="company_content" class="content">
+    <ul class="treeul mt5 clear">
+   		<li class="lev_1"><a <#if funID == 'z'>class="sel"</#if> href="${ctxPath}/main/basemain!index.do?funID=z&menID=xtsz" target="_self">总公司维护</a></li>
+   		<li class="lev_1"><a <#if funID == 'f'>class="sel"</#if> href="${ctxPath}/main/basemain!store.do?funID=f&menID=xtsz" target="_self">分公司维护</a></li>
+   		<li class="lev_1"><a <#if funID == 'c'>class="sel"</#if> href="${ctxPath}/main/basemain!warehose.do?funID=c&menID=xtsz" target="_self">仓库维护</a></li>
+   		<li class="lev_1"><a <#if funID == 'w'>class="sel"</#if> href="${ctxPath}/main/basemain!wlCompany.do?funID=w&menID=xtsz" target="_self">物流公司维护</a></li>
+    </ul>
+  </div>
+</div>
+
+<div class="leftnav mt15 clear" style="cursor: pointer;">
+  <h1 onclick="clickMenu('base_mid');"><img id="base_mid" height="12px" src="${imagePath}/body_down.gif"/>基础维护</h1>
+  <div id="base_content" class="content">
+    <ul class="treeul mt5 clear">
+   		<li class="lev_1"><a <#if funID == 'jz'>class="sel"</#if> href="${ctxPath}/main/basemain!price.do?funID=jz&menID=xtsz" target="_self">价格周期维护</a></li>
+   		<li class="lev_1"><a <#if funID == 'dx'>class="sel"</#if> href="${ctxPath}/main/basemain!sms.do?funID=dx&menID=xtsz" target="_self">短信管理</a></li>
+   		<li class="lev_1"><a <#if funID == 'yh'>class="sel"</#if> href="${ctxPath}/main/usermanagent!userindex.do?funID=yh&menID=xtsz" target="_self">用户管理</a></li>
+    </ul>
+  </div>
+</div>
+<script type="text/javascript">
+function clickMenu(menuID){
+	var baseType='${ctxPath}/static/images/';
+	if ($('#'+menuID).css('display')!='none'){
+		$('#'+menuID+"_img").attr('src',baseType+'body_left.gif');
+		$('#'+menuID).hide(200);
+	}else{
+		$('#'+menuID+"_img").attr('src',baseType+'body_down.gif');
+		$('#'+menuID).show(200);
+	}
+}
+</script>

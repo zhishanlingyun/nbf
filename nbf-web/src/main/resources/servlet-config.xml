@@ -113,7 +113,4 @@
         <property name="freeMarkerConfigurer" ref="freeMarkerConfigurerSupport"/>
     </bean>
 
-    <!--<bean id="queryService" class="com.nbf.service.QueryService"/>-->
-    <bean id="userQueryService" class="com.nbf.service.UserQueryService"/>
-
 </beans>

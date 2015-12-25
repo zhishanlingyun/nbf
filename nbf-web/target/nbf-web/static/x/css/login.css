@@ -1,0 +1,42 @@
+/*css-reset 重置*/
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td{margin:0;padding:0;font-family: "微软雅黑",Tahoma, Geneva, sans-serif;} 
+ol,ul{list-style:none;} 
+img{border:0;}
+
+body{margin-top:100px;padding:0;background:#f4f4f4;}
+a:link{font-size:12px;color:#b3cfed;text-decoration:none;}
+a:visited{font-size:12px;color:#b3cfed;text-decoration:none;}
+a:hover{font-size:12px;color:#b3cfed;text-decoration:underline;}
+a:active{font-size:12px;color:#b3cfed;text-decoration:none;}
+.fcg9{color:#999;}
+.fcg3{color:#333;}
+
+.clear{font-size:0;clear:both;overflow:hidden;display:block;}
+	
+/*Login*/
+.logname{margin:auto;width:490px;text-align:left;}
+
+.login{margin:20px auto 0 auto;width:490px;}
+.loginForm{padding:30px 0 20px 60px;background:#fff;}
+.loginForm h1{color:#fff;}
+.loginForm li{ clear:both; padding:5px 0; line-height:40px;}
+.textbox{ padding-bottom:5px;}
+.loginForm .text,.loginForm .submit a,.loginForm .submit span{background:url(../images/login/logbg.png) no-repeat scroll;}
+.loginForm li strong{font-weight:bold;color:#12ABE4; padding-right:10px;float:left;font-size:15px;}
+.loginForm .text{ width:280px; height:16px; background-position:0 0; color:#464646;font-size:12px; padding:12px 5px; border:0;}
+.loginForm .text:focus{ outline:none;}
+.loginForm li.submit{padding:20px 0 10px 0;}
+.loginForm .submit span{display:inline-block;float:left;font-style:normal;left:0;font-size:14px;color:#FD952F;padding-left:25px; background-position:0 -124px;height:18px; line-height:18px; margin-top:10px;}
+.loginForm .submit a{display:inline-block;width:74px;height:32px; background-position:0 -88px; margin-right:70px; float:right;}
+.fix{*zoom:1;}
+.fix:after,.fix:before{display:block; content:"clear"; height:0; clear:both; overflow:hidden; visibility:hidden;}
+/*footer*/
+.footer{
+	margin:15px auto 0 auto;
+	width:490px;
+	text-align:center;
+	font-size:12px;
+	color:#a4a4a4;
+	}
+.footer span.copy{float:right;}
+

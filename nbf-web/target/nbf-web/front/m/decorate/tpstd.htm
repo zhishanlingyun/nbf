@@ -1,0 +1,19 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en">
+
+    <head>
+        <!-- 公共库函数、公共样式 -->
+        <#include "m/include/head.htm"/>
+
+        <!-- 取得包含信息 -->
+        <#assign pageInfo=FtlSupport.getDecoratePage('${decorate_info_path}') />
+        <!-- 包含定义的头 -->
+        ${pageInfo.getHeader()}
+    </head>
+
+    <body>
+        <#include "m/include/b_top.htm"/>
+
+    </body>
+
+</html>

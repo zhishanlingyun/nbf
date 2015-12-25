@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>优能中学</title>
+	<#include "x/include/head.htm"/>
+    <script type="text/javascript" src="${ctxPath}/front/bms/role.js"></script>
+</head>
+
+<body>
+
+<script type="text/javascript">
+
+		$(document).ready(function(){
+		
+			jrole.qform();
+		});
+		
+</script>
+	<div id="_model" style="display: none;"> </div>
+ <div>
+      <!--page-header-->
+   	 <div class="pagetit clear">
+        <h1>
+        <span class="fr"><!-- <a href="#" title="帮助"><img src="${imagePath}/icons/i_help.gif" alt="帮助" /></a> --></a></span>
+         <img src="${imagePath}/icons/newform.gif" align="absmiddle" /> 客户工单列表</h1>
+      </div>
+      <!--tabs-->
+      <div class="tabs mt10 clear">
+			<ul>
+				<li id="ftab" class="sel" onclick="$(this).parent().children().removeClass('sel');$(this).addClass('sel');">
+					<a href="javascript:void(0)" onclick="workOrderOp.loadWFPWorkOrder()">未分配工单</a>
+				</li>
+				<li id="stab" onclick="$(this).parent().children().removeClass('sel');$(this).addClass('sel');">
+					<a href="javascript:void(0)" onclick="workOrderOp.loadYFPWorkOrder()">已分配工单</a>
+				</li>
+			</ul>
+		</div>
+      
+      <!--operatebar-->
+      <div class="operatebar mt10" id="searchID">
+   		<form name='qform' id='qform' pageNo='1' onsubmit="return false;">
+          创建时间：<input type='text' op='&gt;' style="width:80px;text-align:center" class="itext Wdate" id="ftime1" name='createtime' value='' >至
+          <input type='text' op='&lt;' style="width:80px;text-align:center" class="itext Wdate" id="ftime2" name='createtime' value='' >
+         <input op='like' name="loginname"  type="text" class="itext fcg9 dValue" title="姓名" id="loginname" size="20" value="姓名"  />
+         <input type='button' class="btnsearch" onclick="jrole.qform();"/>
+          
+        <div class="fr">
+          <a href="javascript:workOrderOp.showModel('','','1');" class="ablue fl"  >新增工单</a>     
+          <a href="${ctxPath}/front/sales/workorder!importWorkOrderDir.do?opFlag=1" class="ablue ml10 fl" >导入工单</a>
+          <a href="javascript:void(0)"  id="deleteID" onclick="workOrderOp.deleteBatchWorkOrderWithCheck()" class="ablue ml10 fl" >删除工单</a>
+        </div>          
+	</form>
+      </div>
+      <!--工单列表-->
+      <div id='ghtml' class="tabs mt10 clear"></div>
+     
+</div>
+
+  
+</body>
+</html>

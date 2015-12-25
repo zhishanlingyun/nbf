@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>系统设置</title>
+	<#include "/front/include/head.htm"/>
+    <script type="text/javascript" src="${ctxPath}/front/bms/user/u.js"></script>
+</head>
+
+<body>
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+			
+
+		});
+	</script>
+	<div id="_model" style="display: none;"> </div>
+ <div>
+      <!--page-header-->
+   	 <div class="pagetit clear">
+        <h1>
+        <span class="fr"></span>
+         <img src="${imagePath}/icons/newform.gif" align="absmiddle" /> 用户列表</h1>
+      </div>
+      
+      <!--tabs-->
+      
+      <!--operatebar-->
+      <div class="operatebar mt10" id="searchID">
+   		<form name='qform' id='qform' pageNo='1' onsubmit="return false;">
+          用户名:&nbsp;<input op='like' name="loginname"  type="text" class="itext fcg9 dValue" title="公司名称" id="_loginname" size="20" />
+         <input type='button' class="btnsearch" onclick="u.qform()"/>
+        
+        <div class="fr">
+          <a href="javascript:void(0)" onclick="u.loadUserCreatDiv('0','')" class="ablue fl"  >新增用户</a>     
+          <a href="javascript:void(0)"  id="deleteID" onclick="um.BatchDelete()" class="ablue ml10 fl" >删除用户</a>
+        </div>          
+		</form>
+     </div>
+      <!--工单列表-->
+      <div id='ghtml' class="tabs mt10 clear"></div>
+      
+      
+      <div id="progressbar"></div><div class="progress-label">Loading...</div>
+  
+   </object>
+  </div>
+</div>
+</body>
+</html>
