@@ -1,0 +1,19 @@
+.ml10 {
+    margin-left: 10px;
+}
+
+.mr10 {
+    margin-right: 10px;
+}
+
+.table {
+    table-layout: 100%;
+}
+
+.table th {
+    /*white-space: nowrap;*/
+}
+
+.table td {
+    white-space: nowrap;
+}

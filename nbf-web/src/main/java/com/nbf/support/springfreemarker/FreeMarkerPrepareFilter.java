@@ -12,8 +12,16 @@ import java.io.IOException;
  * To change this template use File | Settings | File Templates.
  */
 public class FreeMarkerPrepareFilter implements Filter {
+
+    private String cssPath;
+    private String jsPath;
+    private String imagePath;
+
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
+        cssPath = filterConfig.getInitParameter("cssPath");
+        jsPath = filterConfig.getInitParameter("jsPath");
+        imagePath = filterConfig.getInitParameter("imagePath");
     }
 
     @Override
@@ -22,11 +30,12 @@ public class FreeMarkerPrepareFilter implements Filter {
         HttpServletRequest request = (HttpServletRequest)servletRequest;
         String ctxPath = request.getContextPath();
         request.setAttribute("ctxPath",ctxPath );
-        request.setAttribute("cssPath", ctxPath+"//static//x//css");
-        request.setAttribute("imagePath", ctxPath+"//static//x//images");
-        request.setAttribute("jsPath", ctxPath+"//static//x//js");
+        request.setAttribute("cssPath", ctxPath+cssPath);
+        request.setAttribute("imagePath", ctxPath+imagePath);
+        request.setAttribute("jsPath", ctxPath+jsPath);
         //request.setAttribute("decorate_info_path", request.getRequestURI());
         filterChain.doFilter(request,servletResponse);
+        System.out.println("after doFilter");
     }
 
     @Override

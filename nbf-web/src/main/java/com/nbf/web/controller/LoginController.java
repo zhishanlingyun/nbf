@@ -1,13 +1,11 @@
 package com.nbf.web.controller;
 
-import com.nbf.dto.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.Mapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.View;
 
-import javax.servlet.http.HttpServletRequest;
 import java.util.Map;
 
 /**
@@ -23,14 +21,12 @@ public class LoginController {
         mv.addObject("username","张三");
         //mv.setViewName("x/login");
         mv.setViewName("x/bms/index");
+        //mv.setViewName("m/index");
         return mv;
     }
 
     @RequestMapping("/login/req")
-    public ModelAndView handleReq(HttpServletRequest request){
-        User user = new User();
-        User u = (User)request.getSession().getAttribute("user");
-        request.getSession().setAttribute("user",user);
+    public ModelAndView handleReq(){
         ModelAndView mv = new ModelAndView("");
         mv.addObject("username","张三");
         //mv.setViewName("x/login");
