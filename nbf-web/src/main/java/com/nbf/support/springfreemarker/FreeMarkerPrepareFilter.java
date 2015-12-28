@@ -35,7 +35,7 @@ public class FreeMarkerPrepareFilter implements Filter {
         request.setAttribute("jsPath", ctxPath+jsPath);
         //request.setAttribute("decorate_info_path", request.getRequestURI());
         filterChain.doFilter(request,servletResponse);
-        System.out.println("after doFilter");
+        //System.out.println("after doFilter");
     }
 
     @Override
