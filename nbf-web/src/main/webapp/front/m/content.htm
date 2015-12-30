@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>mysql</title>
+</head>
+<body>
+
+    <div class="main-content-inner">
+        <div class="breadcrumbs" id="breadcrumbs">
+            <script type="text/javascript">
+                try{ace.settings.check('breadcrumbs' , 'fixed')}catch(e){}
+            </script>
+            <ul class="breadcrumb" id="bc"><li> <i class="icon-home home-icon"></i> <a href="http://jmysql.jd.com/#">首页</a> </li> <li> <a href="http://jmysql.jd.com/#">DNS及架构</a> </li> <li>
+
+
+
+                域名VIP查询
+
+
+            </li></ul>
+        </div>
+        <div class="page-content">
+            <div class="ace-settings-container" id="ace-settings-container">
+                <div class="btn btn-app btn-xs btn-warning ace-settings-btn" id="ace-settings-btn">
+                    <i class="ace-icon fa fa-cog bigger-130"></i>
+                </div>
+                <div class="ace-settings-box clearfix" id="ace-settings-box">
+                    <div class="pull-left width-50">
+                        <!-- #section:settings.skins -->
+                        <div class="ace-settings-item">
+                            <div class="pull-left">
+                                <select id="skin-colorpicker" class="hide">
+                                    <option data-skin="default" value="#438EB9">#438EB9</option>
+                                    <option data-skin="skin-1" value="#222A2D" selected="">#222A2D</option>
+                                    <option data-skin="skin-2" value="#C6487E">#C6487E</option>
+                                    <option data-skin="skin-3" value="#D0D0D0">#D0D0D0</option>
+                                </select>
+                                <div class="dropdown dropdown-colorpicker">
+                                    <a data-toggle="dropdown" class="dropdown-toggle" href="http://jmysql.jd.com/#"><span class="btn-colorpicker" style="background-color:#222A2D"></span></a><ul class="dropdown-menu dropdown-caret"><li><a class="colorpick-btn" href="http://jmysql.jd.com/#" style="background-color:#438EB9;" data-color="#438EB9"></a></li><li><a class="colorpick-btn selected" href="http://jmysql.jd.com/#" style="background-color:#222A2D;" data-color="#222A2D"></a></li><li><a class="colorpick-btn" href="http://jmysql.jd.com/#" style="background-color:#C6487E;" data-color="#C6487E"></a></li><li><a class="colorpick-btn" href="http://jmysql.jd.com/#" style="background-color:#D0D0D0;" data-color="#D0D0D0"></a></li></ul></div>
+                            </div>
+                            <span>&nbsp; 选择皮肤</span>
+                        </div>
+
+                        <div class="ace-settings-item">
+                            <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-add-container">
+                            <label class="lbl" for="ace-settings-add-container">切换窄屏</label>
+                        </div>
+                    </div><!-- /.pull-left -->
+                </div><!-- /.ace-settings-box -->
+            </div><!-- /.ace-settings-container -->
+
+
+            <div class="col-xs-12">
+                <div class="table-responsive">
+                    <div class="container-fluid">
+                        <li class="divider"></li>
+                        <li class="divider"></li>
+                        <div class="row">
+
+                        </div>
+                        <div class="bootstrap-table"><div class="fixed-table-toolbar"><div class="bars pull-left"><div id="custom-toolbar-searchdns">
+                            <form class="form-horizontal form-inline " role="form" id="form_searchdns">
+                                <input type="hidden" name="_xsrf" value="2|9e8bd31a|4aabfe717c997d8bf019e37a77f4fc40|1449138779">
+                                <div class="col-md-6">
+                                    <div class="form-group ">
+                                        <input type="text" name="content" id="input_query" style="width:180px;height:40px" placeholder="IP地址/域名">
+                                    </div>
+                                </div>
+                                <div class="col-md-1 col-md-offset-2">
+                                    <div class="form-group ">
+                                        <button class="btn btn-info btn-primary" type="button" onclick="show_searchdns()" id="button_query" style="width:80px">
+                                            <i class="icon-search fa fa-search bigger-100"></i>查询
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div></div><div class="columns columns-right btn-group pull-right"><button class="btn btn-default" type="button" name="refresh" title="Refresh"><i class="glyphicon glyphicon-refresh icon-refresh"></i></button><button class="btn btn-default" type="button" name="toggle" title="Toggle"><i class="glyphicon glyphicon-list-alt icon-list-alt"></i></button></div></div><div class="fixed-table-container" style="padding-bottom: 0px;"><div class="fixed-table-header" style="display: none;"><table></table></div><div class="fixed-table-body"><div class="fixed-table-loading" style="top: 0px; display: none;">Loading, please wait...</div><table id="searchdnstable" data-toggle="table" data-url="/opentool/searchdns?optype=getinfo" data-method="get" class="table-condensed table-striped table table-hover" data-height="100%" striped="false" data-pagination="true" data-page-size="15" data-page-list="[50, 100, 500, 1000]" data-toolbar="#custom-toolbar-searchdns" data-search="false" data-show-columns="false" data-show-refresh="true" data-show-toggle="true" data-card-view="true" style="margin-top: 0px;">
+                            <thead style="display: none;"><tr><th style="vertical-align: middle; " data-field="ip" tabindex="0"><div class="th-inner sortable both">IP</div><div class="fht-cell"></div></th><th style="vertical-align: middle; " data-field="vip" tabindex="0"><div class="th-inner sortable both">VIP</div><div class="fht-cell"></div></th><th style="vertical-align: middle; " data-field="domain" tabindex="0"><div class="th-inner sortable both">域名</div><div class="fht-cell"></div></th></tr></thead>
+                            <tbody><tr data-index="0"><td colspan="3"><div class="card-view"><span class="title" style="vertical-align: middle; ">IP</span><span class="value">172.19.148.45</span></div><div class="card-view"><span class="title" style="vertical-align: middle; ">VIP</span><span class="value">172.19.148.233</span></div><div class="card-view"><span class="title" style="vertical-align: middle; ">域名</span><span class="value">my11734m.mysql.jddb.com</span></div></td></tr></tbody></table></div><div class="fixed-table-footer" style="display: none;"><table><tbody><tr></tr></tbody></table></div><div class="fixed-table-pagination" style="display: block;"><div class="pull-left pagination-detail"><span class="pagination-info">Showing 1 to 1 of 1 rows</span><span class="page-list" style="display: none;"><span class="btn-group dropup"><button type="button" class="btn btn-default  dropdown-toggle" data-toggle="dropdown"><span class="page-size">15</span> <span class="caret"></span></button><ul class="dropdown-menu" role="menu"><li><a href="javascript:void(0)">50</a></li></ul></span> records per page</span></div><div class="pull-right pagination" style="display: none;"><ul class="pagination"><li class="page-first disabled"><a href="javascript:void(0)">«</a></li><li class="page-pre disabled"><a href="javascript:void(0)">‹</a></li><li class="page-number active"><a href="javascript:void(0)">1</a></li><li class="page-next disabled"><a href="javascript:void(0)">›</a></li><li class="page-last disabled"><a href="javascript:void(0)">»</a></li></ul></div></div></div></div><div class="clearfix"></div>
+                        <!--Progressbar-->
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div><!-- /.page-content -->
+
+</body>
+</html>

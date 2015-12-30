@@ -33,15 +33,15 @@
         <filter-class>com.nbf.support.springfreemarker.FreeMarkerPrepareFilter</filter-class>
         <init-param>
             <param-name>cssPath</param-name>
-            <param-value>//static//m//css</param-value>
+            <param-value>//static//q//css</param-value>
         </init-param>
         <init-param>
             <param-name>jsPath</param-name>
-            <param-value>//front//m//js</param-value>
+            <param-value>//static//q//js</param-value>
         </init-param>
         <init-param>
             <param-name>imagePath</param-name>
-            <param-value>//static//m//images</param-value>
+            <param-value>//static//q//images</param-value>
         </init-param>
     </filter>
     <filter-mapping>

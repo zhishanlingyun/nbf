@@ -12,8 +12,17 @@
     </head>
 
     <body>
-        <#include "m/include/b_top.htm"/>
-
+     <div id="main-container" class="main-container">
+         <#include "m/include/b_top.htm"/>
+         <div id="sidebar" class="sidebar" data-sidebar="true" data-sidebar-scroll="true" data-sidebar-hover="true">
+             <#include "m/include/b_left_body.htm"/>
+             <div class="main-content">
+                 <div class="main-content-inner">
+                     <#include "m/include/b_right_body.htm"/>
+                 </div>
+             </div>
+         </div>
+        </div><!-- /.main-content -->
     </body>
 
 </html>

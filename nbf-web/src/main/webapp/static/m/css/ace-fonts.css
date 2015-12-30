@@ -1,4 +1,5 @@
 /* included only when we don't want to use fonts from google server */
+/*
 @font-face {
   font-family: 'Open Sans';
   font-style: normal;
@@ -10,4 +11,4 @@
   font-style: normal;
   font-weight: 400;
   src: local('Open Sans'), local('OpenSans'), url(../fonts/OpenSans-400.woff) format('woff');
-}
+}*/
