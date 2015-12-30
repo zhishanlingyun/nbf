@@ -20,7 +20,7 @@ public class LoginController {
         ModelAndView mv = new ModelAndView("");
         mv.addObject("username","张三");
         //mv.setViewName("x/login");
-        mv.setViewName("m/index1");
+        mv.setViewName("q/form");
         //mv.setViewName("m/index");
         return mv;
     }
