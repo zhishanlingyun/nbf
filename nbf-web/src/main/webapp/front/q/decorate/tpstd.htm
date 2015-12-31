@@ -5,12 +5,17 @@
     <title>网站后台管理系统</title>
     <#include "q/include/context.htm"/>
     <#include "q/include/head.htm"/>
+    <#assign pageInfo=FtlSupport.getDecoratePage('${decorate_info_path}') />
+    <!-- 包含定义的头 -->
+    ${pageInfo.getHeader()}
 </head>
 <body>
-    <#--<#include "q/include/top.htm"/>-->
-    <div style="background:#f0f9fd;">
-        <div class="lefttop"><span></span>通讯录</div>
+    <#include "q/include/top.htm"/>
+    <div class="leftmain">
         <#include "q/include/left.htm"/>
+    </div>
+    <div class="rightmain">
+        <#include "q/include/b_right_body.htm"/>
     </div>
 
 
