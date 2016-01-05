@@ -1,5 +1,6 @@
 package com.nbf.web.controller;
 
+import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.Mapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,6 +16,8 @@ import java.util.Map;
 @Controller
 public class LoginController {
 
+    private static Logger logger = Logger.getLogger(LoginController.class);
+
     @RequestMapping("/login")
     public ModelAndView handleLogin(){
         ModelAndView mv = new ModelAndView("");
@@ -22,6 +25,7 @@ public class LoginController {
         //mv.setViewName("x/login");
         mv.setViewName("q/login");
         //mv.setViewName("m/index");
+        logger.info("------login------");
         return mv;
     }
 
