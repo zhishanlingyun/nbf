@@ -26,7 +26,7 @@ public class RedisUtilTest {
         jedisPoolConfig.setMaxIdle(7);
     }
 
-    @Test
+    //@Test
     public void teststr(){
         try {
             RedisUtil redisUtil = new RedisUtil(jedisPoolConfig,master);
