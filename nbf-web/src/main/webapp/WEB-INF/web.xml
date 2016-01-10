@@ -47,7 +47,16 @@
     <filter-mapping>
         <filter-name>FreeMarkerPrepareFilter</filter-name>
         <url-pattern>/*</url-pattern>
-    </filter-mapping>                                                                        c
+    </filter-mapping>
+
+    <filter>
+        <filter-name>SecFilter</filter-name>
+        <filter-class>com.nbf.web.filter.SecFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>SecFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
 
     <!-- 加载spring mvc 控制器 -->
     <servlet>
