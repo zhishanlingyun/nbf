@@ -1,27 +1,24 @@
 package com.nbf.web.controller;
 
-import com.nbf.common.com.nbf.common.util.code.JsonUtil;
-import com.nbf.common.com.nbf.common.util.code.UUIDUtil;
-import com.nbf.common.com.nbf.common.util.redis.RedisAccessException;
-import com.nbf.common.com.nbf.common.util.redis.RedisUtil;
+import com.nbf.common.util.code.JsonUtil;
+import com.nbf.common.util.code.UUIDUtil;
+import com.nbf.common.util.redis.RedisAccessException;
+import com.nbf.common.util.redis.RedisUtil;
 import com.nbf.dto.User;
 import com.nbf.web.common.Result;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
-import org.springframework.web.bind.annotation.Mapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.View;
 import redis.clients.jedis.JedisPoolConfig;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
