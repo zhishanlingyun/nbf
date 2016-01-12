@@ -44,7 +44,7 @@ public class LoginController implements InitializingBean{
         users.put(u2.getUsername(),u2);
         users.put(u3.getUsername(),u3);
         JedisPoolConfig jedisPoolConfig;
-        String master = "192.168.81.133:6379,";
+        String master = "192.168.106.130:6379,";
         jedisPoolConfig = new JedisPoolConfig();
         jedisPoolConfig.setMaxTotal(10);
         jedisPoolConfig.setMaxIdle(7);
@@ -72,7 +72,10 @@ public class LoginController implements InitializingBean{
             }else{
                 String sid = UUIDUtil.timeRandom()+"";
                 Cookie cookie = new Cookie("sid",sid);
+                cookie.setMaxAge(-1);
+                Cookie ck = new Cookie("hello","nbf");
                 response.addCookie(cookie);
+                response.addCookie(ck);
                 try {
                     redisUtil.setnx(sid, JsonUtil.obj2Json(user));
                 } catch (RedisAccessException e) {

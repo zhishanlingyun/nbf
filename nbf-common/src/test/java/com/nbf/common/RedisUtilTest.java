@@ -3,6 +3,7 @@ package com.nbf.common;
 import com.nbf.common.util.redis.RedisAccessException;
 import com.nbf.common.util.redis.RedisUtil;
 import org.junit.Before;
+import org.junit.Test;
 import redis.clients.jedis.JedisPoolConfig;
 
 /**
@@ -19,18 +20,18 @@ public class RedisUtilTest {
 
     @Before
     public void setup(){
-        master = "192.168.81.133:6379,";
+        master = "192.168.106.130:6379,";
         jedisPoolConfig = new JedisPoolConfig();
         jedisPoolConfig.setMaxTotal(10);
         jedisPoolConfig.setMaxIdle(7);
     }
 
-    //@Test
+    @Test
     public void teststr(){
         try {
             RedisUtil redisUtil = new RedisUtil(jedisPoolConfig,master);
             //redisUtil.setex("k","mm",10);
-            System.out.println(redisUtil.get("k"));
+            System.out.println(redisUtil.get("6948613600966831863"));
 
         } catch (RedisAccessException e) {
             e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.

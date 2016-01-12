@@ -28,6 +28,11 @@ public class SecFilter implements Filter {
         String url7 = "*.gif";
         nologin.add(url1);
         nologin.add(url2);
+        nologin.add(url3);
+        nologin.add(url4);
+        nologin.add(url5);nologin.add(url6);
+        nologin.add(url7);
+
     }
 
     @Override
@@ -35,27 +40,29 @@ public class SecFilter implements Filter {
         HttpServletRequest request = (HttpServletRequest)servletRequest;
         HttpServletResponse response = (HttpServletResponse)servletResponse;
         String url = request.getServletPath();
-        pass(url,nologin);
-        if(!nologin.contains(url)){
+        System.out.println("getServletPath"+url);
+        System.out.println("url"+request.getRequestURL());
+
+        /*if(!pass(url,nologin)){
             Cookie[] cookies = request.getCookies();
-            for (Cookie cookie : cookies){
-            }
+
             response.sendRedirect("/login");
         }else{
             filterChain.doFilter(request,response);
-        }
+        }*/
+        filterChain.doFilter(request,response);
 
     }
 
     public boolean pass(String url,Set<String> set){
-        boolean pass = false;
-        url = url.substring(url.lastIndexOf("."),url.length()-1);
-        /*if(){
-            // *.jsp,*.js ...
-
-        }*/
+        if(set.contains(url)){
+            return true;
+        }
+        url = url.substring(url.lastIndexOf("."),url.length());
+        if(set.contains(("*"+url))){
+            return true;
+        }
         return false;
-
     }
 
     @Override

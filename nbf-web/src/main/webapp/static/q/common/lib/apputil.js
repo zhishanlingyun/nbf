@@ -9,7 +9,15 @@ var login={
 						  	url:url,
 						  	data:params,
 							callBackFunc : function(obj){
-								window.location.href=ctxPath+obj.url;
+                                var arrstr = document.cookie.split("; ");
+                                for(var i = 0;i < arrstr.length;i ++){
+                                    var temp = arrstr[i].split("=");
+                                    document.cookie=temp[0]=temp[1];
+                                    alert(temp[0]+'='+temp[1]);
+                                }
+                                //alert(document.cookie);
+                                //document.cookie;
+                                document.location.href=ctxPath+obj.url;
 							},
 							callBackErrorFunc:function(){
 								alert("用户名或密码错误！");

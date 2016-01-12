@@ -27,8 +27,9 @@ public class LoginCheckInterceptor implements HandlerInterceptor {
 
     static{
         nologin.add("/login");
+        nologin.add("/login/req");
         JedisPoolConfig jedisPoolConfig;
-        String master = "192.168.81.133:6379,";
+        String master = "192.168.106.130:6379,";
         jedisPoolConfig = new JedisPoolConfig();
         jedisPoolConfig.setMaxTotal(10);
         jedisPoolConfig.setMaxIdle(7);
