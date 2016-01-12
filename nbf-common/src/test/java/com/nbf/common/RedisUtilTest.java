@@ -1,9 +1,8 @@
 package com.nbf.common;
 
-import com.nbf.common.com.nbf.common.util.redis.RedisAccessException;
-import com.nbf.common.com.nbf.common.util.redis.RedisUtil;
+import com.nbf.common.util.redis.RedisAccessException;
+import com.nbf.common.util.redis.RedisUtil;
 import org.junit.Before;
-import org.junit.Test;
 import redis.clients.jedis.JedisPoolConfig;
 
 /**

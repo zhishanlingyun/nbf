@@ -1,4 +1,4 @@
-package com.nbf.common.com.nbf.common.util.redis;
+package com.nbf.common.util.redis;
 
 /**
  * User: root

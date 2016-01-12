@@ -1,4 +1,4 @@
-package com.nbf.common.com.nbf.common.util.code;
+package com.nbf.common.util.code;
 
 import java.util.Random;
 
