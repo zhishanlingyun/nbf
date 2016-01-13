@@ -1,8 +1,6 @@
 package com.nbf.framework.decorate;
 
-import com.nbf.aop.Log;
 import com.nbf.framwork.decorate.DecorateTempletRender;
-import com.nbf.web.controller.LoginController;
 import org.junit.Test;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
