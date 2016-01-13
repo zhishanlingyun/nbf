@@ -3,6 +3,7 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:mvc="http://www.springframework.org/schema/mvc"
        xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:aop="http://www.springframework.org/schema/aop"
        xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="
         http://www.springframework.org/schema/beans 
@@ -10,13 +11,22 @@
         http://www.springframework.org/schema/context 
         http://www.springframework.org/schema/context/spring-context.xsd
         http://www.springframework.org/schema/mvc
-        http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
+        http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
+        http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop-2.0.xsd">
 
 
 
+
+    <aop:aspectj-autoproxy proxy-target-class="true"/>
+    <context:component-scan base-package="com.nbf.aop">
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>
     <!--spring mvc 请求处理-->
     <context:component-scan base-package="com.nbf.web.controller"/>
     <context:component-scan base-package="com.nbf.service"/>
+    <context:component-scan base-package="com.nbf.web"/>
+
 
 
     <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping">
@@ -103,7 +113,7 @@
     <!--等价拦截器配置-->
     <mvc:interceptors>
 
-        <bean id="logincheckInterceptor" class="com.nbf.web.interceptor.LoginCheckInterceptor"/>
+        <!--<bean id="logincheckInterceptor" class="com.nbf.web.interceptor.LoginCheckInterceptor"/>-->
         <bean class="com.nbf.web.interceptor.DecorateReqInterceptor">
             <property name="decorateTempletRender" ref="decorateTempletRender"/>
         </bean>

@@ -42,8 +42,7 @@ public class FreeMarkerConfigurerSupport extends FreeMarkerConfigurer implements
         if(!CollectionUtils.isEmpty(mapObj)){
             config.setAllSharedVariables(new SimpleHash(mapObj, config.getObjectWrapper()));
         }
-        Cache c = (Cache)applicationContext.getBean("cache");
-        System.out.println("Cache is :"+c.get(""));
+
     }
 
     /*@Override

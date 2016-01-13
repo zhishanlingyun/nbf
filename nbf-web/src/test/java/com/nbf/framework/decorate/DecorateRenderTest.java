@@ -1,6 +1,8 @@
 package com.nbf.framework.decorate;
 
+import com.nbf.aop.Log;
 import com.nbf.framwork.decorate.DecorateTempletRender;
+import com.nbf.web.controller.LoginController;
 import org.junit.Test;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -22,5 +24,11 @@ public class DecorateRenderTest {
         DecorateTempletRender render = (DecorateTempletRender)context.getBean("decorateTempletRender");
         Map<String, Set<String>> map = render.getDecorateMap();
         System.out.println(map);
+    }
+
+    @Test
+    public void aop(){
+        Log log = context.getBean(Log.class);
+        log.dolog("kkk");
     }
 }
