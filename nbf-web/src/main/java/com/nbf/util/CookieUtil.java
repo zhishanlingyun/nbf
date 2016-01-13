@@ -56,7 +56,7 @@ public class CookieUtil {
                     if(cookie.getName().equals("sid")){
                         String json = redisUtil.get(cookie.getValue());
                         if(!StringUtils.isEmpty(json)){
-                            User user = (User)JsonUtil.json2Obj(json);
+                            User user = JsonUtil.json2Obj(json,User.class);
                             if(null != user){
                                 return true;
                             }

@@ -5,7 +5,10 @@ import com.nbf.common.util.code.UUIDUtil;
 import com.nbf.common.util.redis.RedisAccessException;
 import com.nbf.common.util.redis.RedisUtil;
 import com.nbf.dto.User;
+import com.nbf.util.CookieUtil;
+import com.nbf.web.common.OnlineUser;
 import com.nbf.web.common.Result;
+import com.nbf.web.monitor.UserMBean;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.stereotype.Controller;
@@ -34,6 +37,8 @@ public class LoginController implements InitializingBean{
     private static final Map<String,User> users = new HashMap <String,User>();
 
     private RedisUtil redisUtil;
+
+    //TODO 增加注册机制
 
     @Override
     public void afterPropertiesSet() throws Exception {
@@ -69,11 +74,15 @@ public class LoginController implements InitializingBean{
         if(null!=user&&!StringUtils.isEmpty(user.getUsername())){
             if(!user.equals(users.get(user.getUsername()))){
                 dispather = "/login";
+            }else if(CookieUtil.checkCookie(request,redisUtil)){
+
             }else{
                 String sid = UUIDUtil.timeRandom()+"";
                 Cookie cookie = new Cookie("sid",sid);
-                cookie.setMaxAge(-1);
+                cookie.setMaxAge(3600);
+                cookie.setPath("/");
                 Cookie ck = new Cookie("hello","nbf");
+                ck.setPath("/");
                 response.addCookie(cookie);
                 response.addCookie(ck);
                 try {
@@ -81,7 +90,7 @@ public class LoginController implements InitializingBean{
                 } catch (RedisAccessException e) {
                     e.printStackTrace();
                 }
-
+                UserMBean.incrUserCount();
             }
         }
 
@@ -89,6 +98,16 @@ public class LoginController implements InitializingBean{
         result.setCode(200);
         result.setSuccess(true);
         result.setUrl("/bms/index");
+        return result;
+    }
+
+    @RequestMapping(value="/login/usercount",method =RequestMethod.GET )
+    @ResponseBody
+    public Result getOnlineUserCount(){
+        Result result = new Result();
+        OnlineUser ou = new OnlineUser(String.valueOf(UserMBean.getOnlineUserCount()));
+        result.setMsg(JsonUtil.obj2Json(ou));
+        result.setSuccess(true);
         return result;
     }
 

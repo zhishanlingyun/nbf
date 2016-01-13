@@ -26,7 +26,7 @@ public class DecorateRenderTest {
 
     @Test
     public void aop(){
-        Log log = context.getBean(Log.class);
-        log.dolog("kkk");
+
     }
 }
+

@@ -13,8 +13,8 @@ public class JsonUtil {
         return JSON.toJSONString(obj);
     }
 
-    public static Object json2Obj(String json){
-        return JSON.parse(json);
+    public static <T> T json2Obj(String json,Class<T> clazz){
+        return JSON.parseObject(json,clazz);
     }
 
 }

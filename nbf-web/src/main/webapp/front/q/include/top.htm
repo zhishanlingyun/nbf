@@ -4,7 +4,14 @@ $(function(){
 	$(".nav li a").click(function(){
 		$(".nav li a.selected").removeClass("selected")
 		$(this).addClass("selected");
-	})	
+	})
+    var config = {
+        url:'${ctxPath}/login/usercount',
+        callBackFunc:function(res){
+             $('#ouc').html(res.msg);
+        }
+    };
+    hd.doGet(config);
 })	
 </script>
     <div class="topbg">
@@ -23,8 +30,8 @@ $(function(){
             
     <div class="topright">    
         <ul>
+        <li><span id="ouc">当前用户数:100</span></li>
         <li><span><img src="${imagePath}/help.png" title="帮助"  class="helpimg"/></span><a href="#">帮助</a></li>
-        <li><a href="#">关于</a></li>
         <li><a href="login.htm" target="_parent">退出</a></li>
         </ul>
 
