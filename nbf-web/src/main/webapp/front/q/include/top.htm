@@ -16,8 +16,13 @@ $(function(){
     };
     hd.doGet(config);*/
 
+
     //comet
-    showUserCount();
+    dwr.engine.setActiveReverseAjax(true);
+    dwr.engine.setNotifyServerOnPageUnload(true);
+    ctController.send();
+    //showUserCount();
+
 
 })
     function showUserCount(){
@@ -25,6 +30,11 @@ $(function(){
             $('#ouc').html(data);
         });
     };
+
+    function show(content){
+        $('#ouc').text(content)
+    }
+
 </script>
     <div class="topbg">
     <div class="topleft">
