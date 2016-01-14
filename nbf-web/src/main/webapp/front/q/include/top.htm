@@ -1,18 +1,30 @@
-﻿<script type="text/javascript">
+﻿<script type='text/javascript' src='/nbf-web/dwr/engine.js'></script>
+<script type='text/javascript' src='/nbf-web/dwr/util.js'></script>
+<script type='text/javascript' src='/nbf-web/dwr/interface/ctController.js'></script>
+<script type="text/javascript">
 $(function(){	
 	//顶部导航切换
 	$(".nav li a").click(function(){
 		$(".nav li a.selected").removeClass("selected")
 		$(this).addClass("selected");
 	})
-    var config = {
+    /*var config = {
         url:'${ctxPath}/login/usercount',
         callBackFunc:function(res){
              $('#ouc').html(res.msg);
         }
     };
-    hd.doGet(config);
-})	
+    hd.doGet(config);*/
+
+    //comet
+    showUserCount();
+
+})
+    function showUserCount(){
+        ctController.getOnlineUserCount(function(data){
+            $('#ouc').html(data);
+        });
+    };
 </script>
     <div class="topbg">
     <div class="topleft">
@@ -30,7 +42,7 @@ $(function(){
             
     <div class="topright">    
         <ul>
-        <li><span id="ouc">当前用户数:100</span></li>
+        <li><span>当前用户数:</span><span id="ouc">100</span></li>
         <li><span><img src="${imagePath}/help.png" title="帮助"  class="helpimg"/></span><a href="#">帮助</a></li>
         <li><a href="login.htm" target="_parent">退出</a></li>
         </ul>

@@ -19,6 +19,9 @@
         </property>
     </bean>
 
+    <import resource="dwrspring.xml" />
+    <!--import resource="dwr.xml" />-->
+
 
 
 </beans>

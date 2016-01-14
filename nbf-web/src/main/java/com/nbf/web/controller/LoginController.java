@@ -54,6 +54,18 @@ public class LoginController implements InitializingBean{
         jedisPoolConfig.setMaxTotal(10);
         jedisPoolConfig.setMaxIdle(7);
         redisUtil = new RedisUtil(jedisPoolConfig,master);
+        new Thread(new Runnable(){
+            @Override
+            public void run() {
+                while(true){
+                    UserMBean.incrUserCount();
+                    try {
+                        Thread.sleep(5000);
+                    }catch (InterruptedException e){}
+
+                }
+            }
+        }).start();
     }
 
     @RequestMapping("/login")
