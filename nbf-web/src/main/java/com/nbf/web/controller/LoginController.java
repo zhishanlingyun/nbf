@@ -38,6 +38,8 @@ public class LoginController implements InitializingBean{
 
     private RedisUtil redisUtil;
 
+    private UserMBean ub = UserMBean.getInstance();
+
     //TODO 增加注册机制
 
     @Override
@@ -58,9 +60,9 @@ public class LoginController implements InitializingBean{
             @Override
             public void run() {
                 while(true){
-                    UserMBean.incrUserCount();
+                    ub.incrUserCount();
                     try {
-                        Thread.sleep(5000);
+                        Thread.sleep(3000);
                     }catch (InterruptedException e){}
 
                 }
@@ -102,7 +104,7 @@ public class LoginController implements InitializingBean{
                 } catch (RedisAccessException e) {
                     e.printStackTrace();
                 }
-                UserMBean.incrUserCount();
+                ub.incrUserCount();
             }
         }
 
@@ -117,7 +119,7 @@ public class LoginController implements InitializingBean{
     @ResponseBody
     public Result getOnlineUserCount(){
         Result result = new Result();
-        OnlineUser ou = new OnlineUser(String.valueOf(UserMBean.getOnlineUserCount()));
+        OnlineUser ou = new OnlineUser(String.valueOf(ub.getOnlineUserCount()));
         result.setMsg(JsonUtil.obj2Json(ou));
         result.setSuccess(true);
         return result;
