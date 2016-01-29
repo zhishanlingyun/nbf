@@ -9,6 +9,7 @@
     <decorateReq>
         <templet>q/decorate/tpstd.htm</templet>
         <req>/bms/*</req>
+        <req>/monitor/*</req>
         <req>/xxx/req</req>
     </decorateReq>
 
