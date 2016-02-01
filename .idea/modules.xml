@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/nbf.iml" filepath="$PROJECT_DIR$/nbf.iml" />
+      <module fileurl="file://$PROJECT_DIR$/nbf-auth/nbf-auth.iml" filepath="$PROJECT_DIR$/nbf-auth/nbf-auth.iml" />
+      <module fileurl="file://$PROJECT_DIR$/nbf-common/nbf-common.iml" filepath="$PROJECT_DIR$/nbf-common/nbf-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/nbf-math/nbf-math.iml" filepath="$PROJECT_DIR$/nbf-math/nbf-math.iml" />
+      <module fileurl="file://$PROJECT_DIR$/nbf-networke/nbf-networke.iml" filepath="$PROJECT_DIR$/nbf-networke/nbf-networke.iml" />
+      <module fileurl="file://$PROJECT_DIR$/nbf-web/nbf-web.iml" filepath="$PROJECT_DIR$/nbf-web/nbf-web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/nosql/nosql.iml" filepath="$PROJECT_DIR$/nosql/nosql.iml" />
+    </modules>
+  </component>
+</project>
+

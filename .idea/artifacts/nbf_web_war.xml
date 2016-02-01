@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="nbf-web:war">
+    <output-path>$PROJECT_DIR$/nbf-web/target</output-path>
+    <root id="archive" name="nbf-web.war">
+      <element id="artifact" artifact-name="nbf-web:war exploded" />
+    </root>
+  </artifact>
+</component>
