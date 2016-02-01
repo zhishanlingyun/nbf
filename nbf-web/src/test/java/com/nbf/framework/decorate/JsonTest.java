@@ -1,33 +1,21 @@
-package com.nbf.web.controller;
+package com.nbf.framework.decorate;
 
 import com.nbf.common.util.code.JsonUtil;
 import com.nbf.dto.TemperatureModel;
-import com.nbf.web.common.Result;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * User: Administrator
- * Date: 16-1-23
- * Time: 上午10:01
+ * Date: 16-1-31
+ * Time: 下午9:40
  */
-@Controller
-//@RequestMapping("monitor")
-public class MonitorController {
+public class JsonTest {
 
-    @RequestMapping("/monitor/index")
-    public String index(){
-        return "q/monitor";
-    }
-
-    @RequestMapping(value="/getcharts",method = RequestMethod.GET )
-    @ResponseBody
-    public Result getCharts(){
+    @Test
+    public void testJson(){
         TemperatureModel temperatureModel = new TemperatureModel();
         temperatureModel.setTimeType(TemperatureModel.TimeType.MONTH);
         temperatureModel.setArea("北京");
@@ -40,10 +28,7 @@ public class MonitorController {
         list.add(temperatureModel);
         list.add(temperatureModel2);
         String json = JsonUtil.obj2Json(list);
-        Result result = new Result();
-        result.setSuccess(true);
-        result.setMsg(json);
-        return result;
+        System.out.println(json);
     }
 
 }

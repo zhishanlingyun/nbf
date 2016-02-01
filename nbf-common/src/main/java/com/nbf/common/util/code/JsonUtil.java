@@ -17,4 +17,9 @@ public class JsonUtil {
         return JSON.parseObject(json,clazz);
     }
 
+    public static String list2Json(){
+
+        return null;
+    }
+
 }
