@@ -24,7 +24,7 @@ public class DecorateRenderTest {
         System.out.println(map);
     }
 
-    @Test
+    //@Test
     public void aop(){
 
     }
