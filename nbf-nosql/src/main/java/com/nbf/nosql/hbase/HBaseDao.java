@@ -36,12 +36,14 @@ public class HBaseDao {
         admin.createTable(table);
     }
 
-    public void createTable(){
+    public void createTable(String tableName,String... columnFamilys){
         try{
             Connection conn = ConnectionFactory.createConnection(cfg);
             Admin admin = conn.getAdmin();
-            HTableDescriptor table = new HTableDescriptor(TableName.valueOf("java_table"));
-            table.addFamily(new HColumnDescriptor("f1"));
+            HTableDescriptor table = new HTableDescriptor(TableName.valueOf(tableName));
+            for(String columnFamily:columnFamilys){
+                table.addFamily(new HColumnDescriptor(columnFamily));
+            }
             System.out.println("create table ...");
             this.createOrOverwrite(admin,table);
             System.out.println("Done.");
@@ -49,12 +51,30 @@ public class HBaseDao {
         }catch (IOException e) {
             e.printStackTrace();
         }
+    }
 
+    public void addColumnFamily(String tableName,String ... columFamilys){
+        try{
+            Connection conn = ConnectionFactory.createConnection(cfg);
+            Admin admin = conn.getAdmin();
+            HTableDescriptor table = admin.getTableDescriptor(TableName.valueOf(tableName));
+            //HTableDescriptor table = conn.getTable(TableName.valueOf(tableName));
+            for(String columnFamily:columFamilys){
+                table.addFamily(new HColumnDescriptor(columnFamily));
+            }
+            System.out.println("create table ...");
+            this.createOrOverwrite(admin,table);
+            System.out.println("Done.");
+
+        }catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public static void main(String[] args){
         HBaseDao dao = new HBaseDao();
-        dao.createTable();
+        //dao.createTable("t1","f1","f2","f3");
+        dao.addColumnFamily("t1","f111","f22");
     }
 
 
