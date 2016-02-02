@@ -24,8 +24,8 @@ public class HBaseDao {
 
     public HBaseDao(){
         cfg = HBaseConfiguration.create();
-        cfg.set("hbase.zookeeper.quorum","localhost:2181");
-        cfg.set("hbase.master", "localhost:60000");
+        cfg.set("hbase.zookeeper.quorum","192.168.106.132:2181");
+        cfg.set("hbase.master", "ubuntu:60000");
     }
 
     public void createOrOverwrite(Admin admin,HTableDescriptor table) throws IOException{

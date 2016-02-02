@@ -9,6 +9,9 @@
         <module>nbf-web</module>
         <module>nbf-common</module>
         <module>nbf-auth</module>
+        <module>nbf-math</module>
+        <module>nbf-networke</module>
+        <module>nbf-nosql</module>
     </modules>
     <packaging>pom</packaging>
 
