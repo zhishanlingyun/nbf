@@ -12,7 +12,7 @@
         <module>nbf-math</module>
         <module>nbf-networke</module>
         <module>nbf-nosql</module>
-        <module>nbf-spring</module>
+        <module>nbf-scala</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -20,9 +20,26 @@
   <url>http://maven.apache.org</url>
 
   <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+      <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+      <project.hadoop.version>2.6.0</project.hadoop.version>
+      <project.hbase.version>1.1.2</project.hbase.version>
+      <project.spark.version>1.6.0</project.spark.version>
+      <scala-plugin-version>2.14</scala-plugin-version>
+      <scala-version>2.10.4</scala-version>
   </properties>
 
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
   <dependencies>
       <dependency>
           <groupId>commons-codec</groupId>
