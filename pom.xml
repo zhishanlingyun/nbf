@@ -24,6 +24,7 @@
       <project.hadoop.version>2.6.0</project.hadoop.version>
       <project.hbase.version>1.1.2</project.hbase.version>
       <project.spark.version>1.6.0</project.spark.version>
+      <project.spark.sql.version>1.6.0</project.spark.sql.version>
       <scala-plugin-version>2.14</scala-plugin-version>
       <scala-version>2.10.4</scala-version>
   </properties>
