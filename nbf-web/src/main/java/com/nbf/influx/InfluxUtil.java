@@ -7,6 +7,7 @@ import org.influxdb.dto.Point;
 import org.influxdb.dto.Query;
 import org.influxdb.dto.QueryResult;
 
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -14,18 +15,33 @@ import java.util.concurrent.TimeUnit;
  */
 public class InfluxUtil {
 
+    public static String url = "http://192.168.81.137:8086";
+    public static String dbusername = "root";
+    public static String dbpassword = "root";
+
+    public static InfluxDB createInfluxDB(String url,String username,String password){
+        return InfluxDBFactory.connect(url, username, password);
+    }
+
     public static void createDB(String dbname){
-        InfluxDB influxDB = InfluxDBFactory.connect("http://192.168.81.137:8086", "root", "root");
+        InfluxDB influxDB = createInfluxDB(url,dbusername,dbpassword);
         influxDB.createDatabase(dbname);
     }
 
-    public static void insert(String dbname,String sql){
+    public static void insert(String dbname,String measurement,Map<String, String> tags,Map<String, Object> fields){
+        InfluxDB influxDB = createInfluxDB(url,dbusername,dbpassword);
+        Point point = Point.measurement(measurement).tag(tags).fields(fields).build();
+        influxDB.write(dbname, "default", point);
+    }
 
+    public static void query(String dbname,String sql){
+        InfluxDB influxDB = createInfluxDB(url,dbusername,dbpassword);
+        Query query = new Query(sql, dbname);
+        QueryResult result = influxDB.query(query);
     }
 
     public static void query(){
         InfluxDB influxDB = InfluxDBFactory.connect("http://192.168.81.137:8086", "root", "root");
-        String dbName = "testdb2";
         //influxDB.createDatabase(dbName);
 
         /*BatchPoints batchPoints = BatchPoints
@@ -48,9 +64,9 @@ public class InfluxUtil {
         batchPoints.point(point1);
         batchPoints.point(point2);
         influxDB.write(batchPoints);*/
-        Query query = new Query("SELECT idle FROM cpu", dbName);
+        /*Query query = new Query("SELECT idle FROM cpu", dbName);
         QueryResult result = influxDB.query(query);
-        System.out.println(result.getResults());
+        System.out.println(result.getResults());*/
         //influxDB.deleteDatabase(dbName);
     }
 
