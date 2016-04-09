@@ -10,7 +10,7 @@ object WordCount {
     val sc = new SparkContext(conf);
     //根据具体数据源创建RDD，数据源可以是HDFS,HBase,Local FS,DB,S3等
     //RDD创建方式有三种：1.外部数据来源;2.根据Scala数据集;3.RDD
-    val lines = sc.textFile("E:\\linux-tool\\spark-1.6.0-bin-hadoop2.6\\README.md",1);
+    val lines = sc.textFile("D:\\lua\\f1.lua",1);
 
     //对初始的RDD进行Transformation,例如map,filter等高阶函数等的编程，来进行具体数据计算
     //拆分字符串
