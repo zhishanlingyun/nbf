@@ -107,20 +107,22 @@ public class HBaseDao {
             conn = pool.borrowObject(cfg);
             Table table = conn.getTable(TableName.valueOf(tablename));
             Put put = new Put(rowkey);
-            put.addColumn(family,qualifier,value);
+            put.addColumn(family, qualifier, value);
             table.put(put);
             logger.info("插入数据成功");
         } catch (Exception e) {
             logger.error(e.getMessage(),e);
         } finally {
-            pool.returnObject(cfg,conn);
+
+            pool.returnObject(cfg, conn);
         }
     }
 
     public void insert(String tablename,String rowkey,String family, Map<String /*qualifier*/,String /*value*/ > qvmap){
+        Table table = null;
         try {
             conn = pool.borrowObject(cfg);
-            Table table = conn.getTable(TableName.valueOf(tablename));
+            table = conn.getTable(TableName.valueOf(tablename));
             Put put = new Put(Bytes.toBytes(rowkey));
             if(null!=qvmap&&!qvmap.isEmpty()){
                 Iterator<String> qualifiers = qvmap.keySet().iterator();
@@ -137,6 +139,7 @@ public class HBaseDao {
         } catch (Exception e) {
             logger.error(e.getMessage(),e);
         } finally {
+            close(table);
             pool.returnObject(cfg,conn);
         }
     }
@@ -191,6 +194,7 @@ public class HBaseDao {
         }
         return result;
     }
+
 
     public static void main(String[] args){
         HBaseDao dao = new HBaseDao();

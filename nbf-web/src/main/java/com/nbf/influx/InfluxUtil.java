@@ -7,7 +7,9 @@ import org.influxdb.dto.Point;
 import org.influxdb.dto.Query;
 import org.influxdb.dto.QueryResult;
 
+import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -15,7 +17,7 @@ import java.util.concurrent.TimeUnit;
  */
 public class InfluxUtil {
 
-    public static String url = "http://192.168.81.137:8086";
+    public static String url = "http://192.168.188.133:8086";
     public static String dbusername = "root";
     public static String dbpassword = "root";
 
@@ -32,16 +34,18 @@ public class InfluxUtil {
         InfluxDB influxDB = createInfluxDB(url,dbusername,dbpassword);
         Point point = Point.measurement(measurement).tag(tags).fields(fields).build();
         influxDB.write(dbname, "default", point);
+        System.out.println("insert "+point);
     }
 
-    public static void query(String dbname,String sql){
+    public static QueryResult query(String dbname,String sql){
         InfluxDB influxDB = createInfluxDB(url,dbusername,dbpassword);
         Query query = new Query(sql, dbname);
         QueryResult result = influxDB.query(query);
+        return result;
     }
 
     public static void query(){
-        InfluxDB influxDB = InfluxDBFactory.connect("http://192.168.81.137:8086", "root", "root");
+        InfluxDB influxDB = InfluxDBFactory.connect("http://192.168.188.133:8086", "root", "root");
         //influxDB.createDatabase(dbName);
 
         /*BatchPoints batchPoints = BatchPoints
@@ -64,14 +68,37 @@ public class InfluxUtil {
         batchPoints.point(point1);
         batchPoints.point(point2);
         influxDB.write(batchPoints);*/
-        /*Query query = new Query("SELECT idle FROM cpu", dbName);
+        Query query = new Query("SELECT idle FROM cpu", "");
         QueryResult result = influxDB.query(query);
-        System.out.println(result.getResults());*/
+        System.out.println(result.getResults());
         //influxDB.deleteDatabase(dbName);
     }
 
     public static void main(String[] args){
-        InfluxUtil.query();
+        /*QueryResult result = InfluxUtil.query("testdb","select * from cpu");
+        System.out.println(result);*/
+        //InfluxUtil.query();
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                Map<String,String> tags = new HashMap<String, String>();
+                Map<String,Object> fields = new HashMap<String, Object>();
+                while(true){
+                    tags.put("hosts","server"+Math.random());
+                    fields.put("value",new Random().nextFloat()*10);
+                    InfluxUtil.insert("testdb", "cpu", tags, fields);
+                    try {
+                        Thread.sleep(1000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    tags.clear();
+                    fields.clear();
+                }
+
+            }
+        }).start();
+
     }
 
 
