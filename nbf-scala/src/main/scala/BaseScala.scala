@@ -114,8 +114,23 @@ object BaseScala {
     println(ep.getJob);*/
     //readFile();
     //fileCount();
-    val r = funmap(2);
-    println(r(3));
+   /* val r = funmap(2);
+    println(r(3));*/
+    /*val a1 = Account;
+    val a2 = Account;
+    println(a1.newUniqueNumber());
+    println(a2.newUniqueNumber());
+    println(a1==a2);*/
+
+    val ac1 = new Account;
+    val ac2 = new Account;
+    println(ac1==ac2);
+    println(ac1.deposit(2));
+    println(ac2.deposit(5));
+    println(ac1.id);
+    println(ac2.id);
+    println(ac1.deposit(1));
+    println(ac2.deposit(1));
   }
 
 }
