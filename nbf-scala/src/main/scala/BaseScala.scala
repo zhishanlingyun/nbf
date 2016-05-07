@@ -1,7 +1,5 @@
 import java.net.URL
 
-import com.scala.base.{User, Employee}
-
 import scala.collection.mutable.ArrayBuffer
 import scala.io.Source
 
