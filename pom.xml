@@ -13,6 +13,7 @@
         <module>nbf-networke</module>
         <module>nbf-nosql</module>
         <module>nbf-scala</module>
+        <module>nbf-service</module>
     </modules>
     <packaging>pom</packaging>
 

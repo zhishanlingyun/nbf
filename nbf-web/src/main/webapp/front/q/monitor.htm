@@ -11,8 +11,6 @@
                 url:ctxPath+'/getcharts',
                 callBackFunc:function(data){
                     var dataObj=eval("("+data.msg+")");
-                    //alert(dataObj[0].temperature);
-
                     $('#container').highcharts({
                         title: {
                             text: '温度曲线图'

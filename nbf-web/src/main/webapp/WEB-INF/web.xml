@@ -103,7 +103,7 @@
         <url-pattern>/dwr/*</url-pattern>
     </servlet-mapping>
 
-    <!--<servlet-mapping>
+    <servlet-mapping>
         <servlet-name>default</servlet-name>
         <url-pattern>*.css</url-pattern>
     </servlet-mapping>
@@ -118,6 +118,5 @@
     <servlet-mapping>
         <servlet-name>default</servlet-name>
         <url-pattern>*.js</url-pattern>
-    </servlet-mapping>-->
-
+    </servlet-mapping>
 </web-app>

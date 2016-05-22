@@ -6,4 +6,22 @@
            http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd">
 
 
+    <bean id="upDataCommonAspect" class="com.nbf.service.aop.CommonAspect">
+        <property name="ump" value="Nbf.Web.updata" />
+    </bean>
+    <bean id="delCommonAspect" class="com.nbf.service.aop.CommonAspect">
+        <property name="ump" value="Nbf.Web.delete" />
+    </bean>
+
+    <aop:config>
+        <aop:aspect id="up" ref="upDataCommonAspect">
+            <aop:pointcut id="updata" expression="execution(* com.nbf.service.impl.RedisManager.update(..))" />
+            <aop:around method="doRund" pointcut-ref="updata"/>
+        </aop:aspect>
+        <aop:aspect id="del" ref="delCommonAspect">
+            <aop:pointcut id="delete" expression="execution(* com.nbf.service.impl.RedisManager.delete(..))" />
+            <aop:around method="doRund" pointcut-ref="delete"/>
+        </aop:aspect>
+    </aop:config>
+
 </beans>
